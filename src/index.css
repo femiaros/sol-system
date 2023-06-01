@@ -84,6 +84,29 @@
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: var(--box-shadow);
 }
+#paragraph::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: 34%;
+  height: 11px;
+  width: 70%;
+  background-color: #ffffff;
+  -webkit-clip-path: polygon(3% 100%, 0 0, 100% 0, 100% 100%);
+  clip-path: polygon(3% 100%, 0 0, 100% 0, 100% 100%);
+}
+
+#paragraph::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 34%;
+  height: 11px;
+  width: 70%;
+  background-color: #ffffff;
+  -webkit-clip-path: polygon(0 100%, 0 0, 97% 0, 100% 100%);
+  clip-path: polygon(0 100%, 0 0, 97% 0, 100% 100%);
+}
 .swiper-slide-active #paragraph{
   transform: translateX(0);
   opacity: 1;
@@ -117,6 +140,13 @@
   border: 1px solid white;
 }
 
+.swiper-pagination-bullet{
+  background-color: #6b7998;
+}
+.swiper-pagination-bullet-active{
+  background-color: #193F93;
+}
+
 
 /* canvas- styles */
 .canvas-loader {
@@ -131,11 +161,11 @@
 }
 
 /* GRADIENT BACKGROUND */
-.green-pink-gradient {
+/* .green-pink-gradient {
   background: "#00cea8";
   background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
   background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
-}
+} */
 .black-blue-gradient {
   background: "#000207";
   background: linear-gradient(180.13deg, #000000 30%, #000207 70%);
@@ -228,77 +258,9 @@
   }
 }
 
-
-
-
-
-
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+/* SIZING OF MAP CONTAINER */
+.leaflet-container{
+  min-height: 400px;
+  height: calc(100vh - 80px);
+  z-index: -5;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */

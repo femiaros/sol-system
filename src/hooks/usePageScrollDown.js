@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
 const usePageScrollDown = () => {
-    const [pageScrollDown, setPageScrollDown] = useState(false)
-    // to handle scrollY > 3
-    useEffect(() => {
+  const [pageScrollDown, setPageScrollDown] = useState(false)
+
+  // to handle scrollY > 70
+  useEffect(() => {
     function handleScroll() {
-      if (window.scrollY > 60) {
+      if (window.scrollY > 40) {
         setPageScrollDown(true)
       } else {
         setPageScrollDown(false);

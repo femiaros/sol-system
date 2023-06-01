@@ -1,36 +1,46 @@
-
-import { useState } from "react"
+import { useReducer } from "react"
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import MobileNav from './components/MobileNav'
-import Explore from './components/Explore'
+import Worlds from './components/Worlds'
+import Asteroids from "./components/Asteroids"
 import Missions from "./components/Missions"
 import Footer from './components/Footer'
 import PlanetBG from './components/PlanetBG'
 
+// *** reducer function ***
+const reducer = (state,action)=>{
+  switch(action.type){
+    case 'setActive':
+      return { ...state,active: action.payload};
+    case 'setMenu':
+      return { ...state, menu: action.payload };
+    default:
+      throw new Error();
+  }
+}
+
 function App() {
   // *** required states ***
-  const [active, setActive] = useState("")
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [state,dispatch] = useReducer(reducer,{
+    active: '',
+    menu: false
+  })
 
   return (
     <div className='relative z-0 bg-primary'>
-      <header id='header' className='relative w-full min-h-screen bg-transparent mb-20'>
-        <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} active={active} setActive={setActive}/>
+      <header id='header' className='relative w-full min-h-screen bg-transparent mb-[100px]'>
+        <Navbar state={state} dispatch={dispatch}/>
         <Hero />
-        <PlanetBG />  
+        <PlanetBG /> {/* SOLAR SYSTEM MODEL BG */}
       </header>
-      <MobileNav menuOpen={menuOpen} setMenuOpen={setMenuOpen} active={active} setActive={setActive}/>  
-      <Explore/>
-      <div id='missions' className=" black-blue-gradient mxs:h-[60px] h-[100px] mb-[40px]"></div>
+      <MobileNav state={state} dispatch={dispatch}/>  
+      <Worlds/>
+      <Asteroids/>
       <Missions/>
-      <Footer/> 
+      <Footer state={state}/> 
     </div> 
   )
 }
 
 export default App
-
-{/* <div className="w-screen h-screen bg-red-300">
-
-    </div> */}

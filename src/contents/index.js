@@ -2,16 +2,28 @@ import {
   nasa
 } from "../assets"
 
-import planetImage1 from '../images/mercury.jpg'
-import planetImage2 from '../images/venus.jpg'
-import planetImage3 from '../images/earth.jpg'
-import planetImage4 from '../images/mars.jpg'
-import planetImage5 from '../images/jupiter.jpg'
-import planetImage6 from '../images/saturn.jpg'
-import planetImage7 from '../images/uranus.jpg'
-import planetImage8 from '../images/neptune.jpg'
-import planetImage9 from '../images/pluto.jpg'
+import {IoLogoTwitter} from 'react-icons/io'  
+import {RiInstagramFill,RiFacebookBoxFill} from 'react-icons/ri'  
+import {FaBehanceSquare,FaLinkedin} from 'react-icons/fa'  
 
+// World Models
+import PlanetMercuryCanvas from "../components/canvas/mercury"
+import PlanetVenusCanvas from "../components/canvas/venus"
+import PlanetEarthCanvas from "../components/canvas/earth"
+import PlanetMarsCanvas from "../components/canvas/mars"
+import PlanetJupiterCanvas from "../components/canvas/jupiter"
+import PlanetSaturnCanvas from "../components/canvas/saturn"
+import PlanetUranusCanvas from "../components/canvas/uranus"
+import PlanetPlutoCanvas from "../components/canvas/pluto"
+import PlanetNeptuneCanvas from "../components/canvas/neptune"
+
+// Asteroid Models
+import AsteroidVestaCanvas from "../components/canvas/vesta"
+import AsteroidBenneCanvas from "../components/canvas/bennu"
+import AsteroidToutatisCanvas from "../components/canvas/toutatis"
+import AsteroidDaphneCanvas from "../components/canvas/daphne"
+
+// Missions 
 import junoMission from '../images/juno.jpg'
 import newHorizonsMission from '../images/new-horizons.png'
 import Phoenix from '../images/phoenix.jpg'
@@ -20,84 +32,159 @@ import Davinci from '../images/davinci.webp'
 
 const navLinks = [
   {
-    id: "explore",
-    title: "Explore",
+    id: "worlds",
+    title: "Worlds",
+  },
+  {
+    id: "asteroids",
+    title: "Asteroids",
+  },
+  {
+    id: "missions",
+    title: "Missions",
+  }
+];
+
+const footerLinks = [
+  {
+    id: "worlds",
+    title: "Worlds",
+  },
+  {
+    id: "asteroids",
+    title: "Asteroids",
   },
   {
     id: "missions",
     title: "Missions",
   },
-  // {
-  //   id: "support",
-  //   title: "Support",
-  // },
+  {
+    id: "projects",
+    title: "Projects",
+    link: 'https://www.behance.net/femiaros'
+  }
 ];
 
-const slideData = [
+const footerSocials = [
+  {
+    id: "linkedin",
+    icon: FaLinkedin,
+    link: 'https://www.linkedin.com/in/oluwafemi-sanmi-jnr'
+  },
+  {
+    id: "behance",
+    icon: FaBehanceSquare,
+    link: 'https://www.behance.net/femiaros'
+  },
+  {
+    id: "instagram",
+    icon: RiInstagramFill,
+    link: 'https://www.behance.net/femiaros'
+  },
+  {
+    id: "facebook",
+    icon: RiFacebookBoxFill,
+    link: 'https://www.facebook.com/Oluwafemi.frozee'
+  },
+  {
+    id: "twitter",
+    icon: IoLogoTwitter,
+    link: 'https://twitter.com/femi_frozee'
+  }
+];
+
+const planetsSlideData = [
   {
     id:1,
     name:'Mercury',
     distance:'43.27 million km',
-    details:'From the surface of Mercury, the Sun would appear more than three times as large as it does when viewed from Earth, and the sunlight would be as much as 11 times brighter.From the surface of Mercury, the Sun would appear more than three times as large as it does when viewed from Earth, the sunlight 11-times brighter.',
-    src:planetImage1 
+    details:'The first & closest planet to the Sun. From the surface of Mercury, the Sun would appear more than three times as large as it does when viewed from Earth, and the sunlight would be as much as 11 times brighter.',
+    model:PlanetMercuryCanvas
   },
   {
     id:2,
     name:'Venus',
     distance:'66.88 million km',
     details:`Similar in structure and size to Earth, Venus's thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system.`,
-    src:planetImage2
+    model:PlanetVenusCanvas
   },
   {
     id:3,
     name:'Earth',
     distance:'93.83 million km',
     details:`Earth—our home planet—is the only place we know of so far that’s inhabited by living things. It's also the only planet in our solar system with liquid water on the surface.`,
-    src:planetImage3
+    model:PlanetEarthCanvas 
   },
   {
     id:4,
     name:'Mars',
     distance:'154.69 million km',
     details: `Mars is a dusty, cold, desert world with a very thin atmosphere. There is strong evidence Mars was – billions of years ago – wetter and warmer, with a thicker atmosphere.`,
-    src:planetImage4
+    model:PlanetMarsCanvas 
   },
   {
     id:5,
     name:'Jupiter',
     distance:'460.56 million km',
     details: `Jupiter is more than twice as massive than the other planets of our solar system combined. The giant planet's Great Red Spot is a centuries-old storm bigger than Earth.`,
-    src:planetImage5
+    model:PlanetJupiterCanvas
   },
   {
     id:6,
     name:'Saturn',
     distance:'911.13 million km',
     details: `Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system. The other giant planets have rings, but none are as spectacular as Saturn's.`,
-    src:planetImage6
+    model:PlanetSaturnCanvas 
   },
   {
     id:7,
     name:'Uranus',
     distance:'1.920 billion km',
     details: `Uranus—seventh planet from the Sun—rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin on its side.`,
-    src:planetImage7
+    model:PlanetUranusCanvas
   },
   {
     id:8,
     name:'Neptune',
     distance:'2.780 billion km',
     details: `Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations.`,
-    src:planetImage8
+    model:PlanetNeptuneCanvas 
   },
   {
     id:9,
     name:'Pluto',
     distance:'3.231 billion km',
     details: `Pluto is a complex world of ice mountains and frozen plains. Once considered the ninth planet, Pluto is the best known of a new class of worlds called dwarf planets.`,
-    src:planetImage9
+    model:PlanetPlutoCanvas 
   }
 ]
+
+const asteroidsSlideData = [
+  {
+    id:1,
+    name:'Vesta',
+    details:`4 Vesta is the second most massive body in the main asteroid belt, accounting for almost nine percent of the total mass of all asteroids. Only dwarf planet Ceres is more massive in that region of rocky debris between Mars and Jupiter. Vesta orbits the sun every 1,330 days (3.64 years), coming as close as 2.15 AU and reaching as far as 2.57 AU from the sun. It's about 525.4 kilometers in diameter`,
+    model:AsteroidVestaCanvas
+  },
+  {
+    id:2,
+    name:'Bennu',
+    details:`An ancient relic of our solar system’s early days, Bennu has seen more than 4.5 billion years of history. Scientists think that within 10 million years of our solar system’s formation, Bennu’s present-day composition was already established.`,
+    model:AsteroidBenneCanvas
+  },
+  {
+    id:3,
+    name:'Toutatis',
+    details:`4179 Toutatis is an elongated, stony asteroid and slow rotator, classified as a near-Earth object and potentially hazardous asteroid of the Apollo asteroid & Alinda asteroid groups. Approximately 2.5 kilometers in diameter, the asteroid was named after Toutatis from Celtic mythology.`,
+    model:AsteroidToutatisCanvas
+  },
+  {
+    id:4,
+    name:'Daphne',
+    details:`Daphne is a large asteroid from the asteroid belt. NASA JPL classified Daphne as not potentially hazardous because its orbit does not bring it close to Earth. Daphne is a dark-surfaced body, it orbits the sun every 1,680 days (4.60 years), coming as close as 2.00 AU and reaching as far as 3.52 AU from the sun. it's about 205.5 kilometers in diameter, making it larger than 99% of asteroids.`,
+    model:AsteroidDaphneCanvas
+  },
+]  
 
 
 const missions = [
@@ -149,12 +236,12 @@ const missions = [
     src: Davinci,
     date: "Late 2020s - Further",
     points: [
-      "NASA’s DAVINCI mission will study the origin, evolution, and present state of Venus in unprecedented detail from near the top of the clouds to the planet’s surface.",
-      "Goal is to help answer longstanding questions about our neighboring planet, especially whether Venus was ever wet and habitable like Earth.",
       "Named after visionary Renaissance artist and scientist Leonardo da Vinci, the DAVINCI mission Deep Atmosphere Venus Investigation of Noble gases, Chemistry, and Imaging is scheduled to launch in the late 2020s.",
+      "NASA’s DAVINCI mission will study the origin, evolution, and present state of Venus in unprecedented detail from near the top of the clouds to the planet’s surface.",
+      "Goal is to help answer longstanding questions about our neighboring planet, especially whether Venus was ever wet and habitable like Earth."
     ],
   }
 ];
 
 
-export { navLinks,slideData, missions};
+export { navLinks,footerLinks,footerSocials,planetsSlideData,asteroidsSlideData, missions};

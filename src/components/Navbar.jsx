@@ -6,10 +6,11 @@ import { navLinks } from "../contents"
 import { styles } from "../styles"
 import { motion } from "framer-motion"
 import { navBarVariants } from "../utils/motion"
+//custom hook
 import usePageScrollDown from "../hooks/usePageScrollDown"
 
 
-const Navbar = ({menuOpen,setMenuOpen,active,setActive}) => {
+const Navbar = ({state, dispatch}) => {
   // *** required states ***
   const pageScrollDown = usePageScrollDown()
 
@@ -32,8 +33,8 @@ const Navbar = ({menuOpen,setMenuOpen,active,setActive}) => {
           to='/'
           className='flex items-center gap-2 cursor-pointer'
           onClick={() => {
-            setActive("")
-            setMenuOpen(false)
+            dispatch({type: 'setActive', payload: ''})
+            dispatch({type: 'setMenu', payload: false})
             window.scrollTo(0, 0)
           }}
         >
@@ -48,9 +49,11 @@ const Navbar = ({menuOpen,setMenuOpen,active,setActive}) => {
             <li
               key={link.id}
               className={`${
-                active === link.title ? "text-secondary" : "text-white"
+                state.active === link.title ? "text-secondary" : "text-white"
               } hover:text-secondary text-[14px] font-medium uppercase cursor-pointer`}
-              onClick={() => setActive(link.title)}
+              onClick={() => 
+                dispatch({type: 'setActive', payload: link.title})
+              }
             >
               <a href={`#${link.id}`}>{link.title}</a>
             </li>
@@ -59,10 +62,12 @@ const Navbar = ({menuOpen,setMenuOpen,active,setActive}) => {
         </ul>
 
         {/* show only on small screens */}
-        <div className={`${styles.transition} ${menuOpen? 'rotate-180':'rotate-0'} transform md:hidden block cursor-pointer`}
-          onClick={() => setMenuOpen(!menuOpen)}
+        <div className={`${styles.transition} ${state.menu? 'rotate-180':'rotate-0'} z-100 transform md:hidden block cursor-pointer`}
+          onClick={() => 
+            dispatch({type: 'setMenu', payload: !state.menu})
+          }
         >
-          {menuOpen ? 
+          {state.menu ? 
             <IoMdClose className="text-3xl" /> :
             <HiMenuAlt3 className="text-3xl" />
           }

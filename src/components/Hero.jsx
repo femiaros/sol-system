@@ -1,4 +1,5 @@
 import { styles } from "../styles"
+import usePageScrollDown from "../hooks/usePageScrollDown"
 import { staggerContainer,slideIn,fadeIn } from "../utils/motion" 
 
 import { motion } from "framer-motion"
@@ -8,9 +9,12 @@ import teamImage from '../images/team-hub-removebg.png'
 import {FaFacebookF,FaTiktok} from 'react-icons/fa'
 import {AiOutlineTwitter,AiFillInstagram} from 'react-icons/ai'
 
-const Hero = () => { //#A9D3EE
+const Hero = () => { 
+    // *** required states ***
+    const pageScrollDown = usePageScrollDown()
+
   return (
-    <motion.section className={`${styles.paddingX} pb-[70px] pt-[90px] hbp:relative max-w-7xl mx-auto`}
+    <motion.section className={`${styles.paddingX} ${!pageScrollDown?'pt-[90px]' : 'pt-[180px]'} pb-[70px] hbp:relative max-w-7xl mx-auto`}
 
         variants={staggerContainer(0.4,2)}
         initial='hidden'
@@ -36,31 +40,31 @@ const Hero = () => { //#A9D3EE
         <br className="hbp:hidden" /><br className="hbp:hidden"/><br className="xs:hidden" />
 
         {/* ASIDE */}
-        <motion.div id="aside" className="hbp:absolute shadow-card bg-[#1d1836b7] backdrop-blur-[20px] left-0 top-[50px] flex hbp:flex-col flex-row flex-wrap hbp:gap-0 gap-5 p-6 items-center hbpi:justify-start justify-center rounded-3xl z-[4] before:content-[''] before:absolute before:inset-0  before:rounded-3xl"
+        <motion.div id="aside" className={`hbp:absolute left-0 ${!pageScrollDown?'top-[50px]' : 'top-[140px]'} bg-[#1d1836b7] backdrop-blur-[20px] flex hbp:flex-col flex-row flex-wrap hbp:gap-0 gap-5 p-6 items-center hbpi:justify-start justify-center rounded-3xl z-[4] before:content-[''] before:absolute before:inset-0  before:rounded-3xl before:shadow-cardi`}
             variants={fadeIn("", "", '', 2)}
         >
-            <div className="relative w-[160px] hbp:min-h-[160px] min-h-[200px] hbp:mb-3 before:content-[''] before:absolute before:w-[70%] before:h-[1px] before:bg-alternative before:top-[100%] before:left-[50%] before:transform before:translate-x-[-50%] mxs:w-full">
+            <div className="relative w-[160px] hbp:min-h-[163px] min-h-[200px] hbp:mb-3 before:content-[''] before:absolute before:w-[70%] before:h-[1px] before:bg-alternative before:top-[100%] before:left-[50%] before:transform before:translate-x-[-50%] mxs:w-full">
                 <figure className="h-[100px] w-[100px] mx-auto">
                     <img src={astroImage} alt="" className=" w-full h-full object-cover" />
                 </figure>
-                <p className=" text-[12px] font-semibold text-center text-white tracking-wide mxs:text-[13px]">
-                    <span className="">Yuri Gagarin</span>, the first man in space and in orbit
+                <p className=" text-[12px] font-normal text-center text-white tracking-wide mxs:text-[13px]">
+                    <span className="font-semibold">Yuri Gagarin</span>, the first man in space and in orbit
                 </p>
-            </div>
-            <div className="relative w-[160px] hbp:min-h-[190px] min-h-[200px] hbp:mb-3 before:content-[''] before:absolute before:w-[70%] before:h-[1px] before:bg-alternative before:top-[100%] before:left-[50%] before:transform before:translate-x-[-50%] mxs:w-full">
+            </div> 
+            <a href="#footer" className="relative w-[160px] hbp:min-h-[170px] min-h-[200px] hbp:mb-3 before:content-[''] before:absolute before:w-[70%] before:h-[1px] before:bg-alternative before:top-[100%] before:left-[50%] before:transform before:translate-x-[-50%] mxs:w-full">
                 <figure className="hbp:h-[70px] h-[100px] hbp:w-[80px] w-[100px] mx-auto">
                     <img src={issImage} alt="" className=" w-full h-full object-cover" />
                 </figure>
-                <p className=" text-[12px] font-semibold text-center text-white tracking-wide mxs:text-[13px]">
-                    <span className="">The International Space Station</span> is a modular station (habitable artificial satellite) in low Earth orbit
+                <p className=" text-[12px] font-normal text-center text-white tracking-wide mxs:text-[13px]">
+                    <span className="font-semibold">The International Space Station</span> is a modular station (habitable artificial satellite) in low Earth orbit
                 </p> 
-            </div>
+            </a>
             <div className="relative w-[160px] hbp:min-h-[167px] min-h-[200px] before:content-[''] before:absolute before:w-[70%] before:h-[1px] before:bg-alternative before:top-[100%] before:left-[50%] before:transform before:translate-x-[-50%] mxs:w-full">
                 <figure className=" h-[100px] w-[100px] mx-auto">
                     <img src={teamImage} alt="" className=" w-full h-full object-cover" />
                 </figure>
-                <p className="font-semibold text-[12px] text-center text-white tracking-wide mxs:text-[13px]">
-                    <span className="">Teamwork & Collaboration</span> in Long-Duration Space Missions
+                <p className="font-normal text-[12px] text-center text-white tracking-wide mxs:text-[13px]">
+                    <span className="font-semibold">Teamwork & Collaboration</span> in Long-Duration Space Missions
                 </p>
             </div>
         </motion.div>

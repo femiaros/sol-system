@@ -7,6 +7,9 @@
 - React-Vite
 - Tailwind css
 - Framer-motion
-- Three
+- React-Leaflet
+- React-Three
 
-![screencapture-sol-system](/src/images/project-banner.png)
+🌐Demo:
+
+[![Demo live](/src/images/project-banner.png)](https://solstem.netlify.app/)

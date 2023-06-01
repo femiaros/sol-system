@@ -1,15 +1,15 @@
-import { motion } from "framer-motion"
-import { staggerContainer } from '../utils/motion'
-import { EarthCanvas,StarsCanvas } from "./canvas"
+import SolarSystemCanvas from "./canvas/solarsys"
+// import StarsCanvas from "./canvas/stars"
 
 const PlanetBG = () => {
+
   return (
-    <motion.div className='absolute z-[-1] top-0 left-0 w-full h-full' //
-      variants={staggerContainer()}
-    >
-        <EarthCanvas />
-        <StarsCanvas />
-    </motion.div>
+    <div className='absolute z-[-1] top-0 left-0 w-full h-full' 
+    >   
+        
+      <SolarSystemCanvas />
+        
+    </div>
   )
 }
 
