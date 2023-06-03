@@ -1,10 +1,12 @@
+import { useRef } from "react"
 import { motion } from "framer-motion"
 import { Tilt } from 'react-tilt'
 import { styles } from '../styles'
 import StarsCanvas from './canvas/stars'
 import { staggerContainer,textVariant,fadeIn } from '../utils/motion'
-import { planetsSlideData } from '../contents'
+import useElementOnScreen from "../hooks/useElementOnScreen"
 
+import { planetsSlideData } from '../contents'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper'
@@ -15,6 +17,14 @@ import 'swiper/css/pagination';
 
 
 const Worlds = () => {
+    // *** required state && hook***
+    const targetRef = useRef(null)
+    
+    const isVisible = useElementOnScreen({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3
+    }, targetRef)
 
   return (
     <main id='worlds' className='relative z-[-1] min-h-screen mb-[80px] scroll-mt-20'>
@@ -47,7 +57,11 @@ const Worlds = () => {
 
         {/* WORLDS SLIDES */}
 
-        <div className='mt-12 relative'>
+        <div // intersection observing div
+            ref={targetRef}
+            className="min-h-[300px]"
+        >     
+        <div className={`${isVisible?'':'canva-wrapper'} mt-12 relative`}>
             {/* Stars overlay background */}
             <StarsCanvas />
             {/* Main Swipe */}
@@ -64,8 +78,8 @@ const Worlds = () => {
                         <SwiperSlide  key={planet.id}
                             className='relative w-full h-full'
                         >
-
-                            <div className='relative h-full flex items-center justify-start'>
+                            
+                            <div className=' relative h-full flex items-center justify-start'>
 
                                 <div  className={`${styles.transition} bg-transparent min-w-[50%] text-white mxs:pl-[20px] pl-[60px] pr-[20px]`}>
 
@@ -82,11 +96,13 @@ const Worlds = () => {
 
                                 </div>
 
-                                <div className=' absolute right-0  min-h-full w-[60%] wbp:min-w-[768px] min-w-full  cursor-pointer z-[-1] '>
+                                <div className={` absolute right-0  min-h-full w-[60%] wbp:min-w-[768px] min-w-full  cursor-pointer z-[-1]`}>
+                                
                                     <Model/>
+                                
                                 </div>
                             </div>
-
+                            
                         </SwiperSlide >
                         )
                     })
@@ -94,6 +110,7 @@ const Worlds = () => {
             </Swiper>
 
         </div>
+        </div> 
     
     
 

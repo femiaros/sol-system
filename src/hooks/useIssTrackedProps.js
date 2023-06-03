@@ -30,9 +30,9 @@ const useIssTrackedProps = () => {
         }
     }
 
-    // once screen loads :getISS every 2sec 
+    // once screen loads :getISS every 3sec 
     useEffect(() => {
-        setInterval(getISS,2000)
+        setInterval(getISS,3000)
 
         return () => {
             clearInterval();

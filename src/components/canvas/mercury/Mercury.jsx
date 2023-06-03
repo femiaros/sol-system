@@ -7,20 +7,15 @@ Source: https://sketchfab.com/3d-models/mercury-planet-ccb6c6a9ac3742109cc67c0f1
 Title: Mercury (planet)
 */
 
-import React, { useRef,useEffect } from 'react'
+import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Mercury(props) {
-  const mercuryRef = useRef(null)
-  useEffect(()=>{
-    if(!!mercuryRef){
-    console.log(mercuryRef.current) 
-    }
-  },[mercuryRef.current])
+  
 
   const { nodes, materials } = useGLTF('/models/mercury-transformed.glb')
   return (
-    <group {...props} dispose={null} ref={mercuryRef}>
+    <group {...props} dispose={null}>
       <mesh castShadow receiveShadow geometry={nodes['Sphere001_Material_#50_0'].geometry} material={materials.Material_50} rotation={[-Math.PI / 2, 0, 0]} />
     </group>
   )

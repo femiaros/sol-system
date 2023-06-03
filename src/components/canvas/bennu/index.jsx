@@ -37,7 +37,7 @@ const AsteroidBennu = () => {
 
 const AsteroidBenneCanvas = () => {
   return (
-    <div className='w-full h-auto absolute inset-0 z-[0]'>
+    <div className='w-full h-auto absolute inset-0 z-[0] canva-wrapper'>
     <Canvas
       className='w-full h-full '
       shadows

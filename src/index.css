@@ -264,3 +264,12 @@
   height: calc(100vh - 80px);
   z-index: -5;
 }
+
+/* display canva only if slide active */
+.canva-wrapper{
+  display: none;
+}
+
+.swiper-slide-active .canva-wrapper{
+  display: block;
+}

@@ -1,4 +1,4 @@
-import { useReducer } from "react"
+import { useReducer,useRef } from "react"
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import MobileNav from './components/MobileNav'
@@ -24,15 +24,16 @@ function App() {
   // *** required states ***
   const [state,dispatch] = useReducer(reducer,{
     active: '',
-    menu: false
+    menu: false,
   })
+  const headerRef = useRef(null)
 
   return (
     <div className='relative z-0 bg-primary'>
-      <header id='header' className='relative w-full min-h-screen bg-transparent mb-[100px]'>
+      <header ref={headerRef} id='header' className='relative w-full min-h-screen bg-transparent mb-[100px]'>
         <Navbar state={state} dispatch={dispatch}/>
         <Hero />
-        <PlanetBG /> {/* SOLAR SYSTEM MODEL BG */}
+        <PlanetBG headerRef={headerRef}/> 
       </header>
       <MobileNav state={state} dispatch={dispatch}/>  
       <Worlds/>

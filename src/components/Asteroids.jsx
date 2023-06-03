@@ -1,3 +1,4 @@
+import { useRef } from "react"
 import { motion } from "framer-motion"
 import { Tilt } from 'react-tilt'
 import { styles } from '../styles'
@@ -5,6 +6,7 @@ import StarsCanvas from './canvas/stars'
 import { staggerContainer,textVariant,fadeIn } from '../utils/motion'
 import { asteroidsSlideData } from "../contents"
 
+import useElementOnScreen from "../hooks/useElementOnScreen"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper'
@@ -13,6 +15,14 @@ import 'swiper/css'
 import 'swiper/css/pagination';
 
 const Asteroids = () => {
+    // *** required state && hook***
+    const targetRef = useRef(null)
+    
+    const isVisible = useElementOnScreen({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3
+    }, targetRef)
 
   return (
     <section id='asteroids' className='relative z-[-1] mb-[80px] scroll-mt-20'>
@@ -44,9 +54,12 @@ const Asteroids = () => {
 
         </motion.div>
 
-         {/* ASTEROIDS SLIDE */}
-
-        <div className='mt-12 relative'>
+        {/* ASTEROIDS SLIDE */}
+        <div // intersection observing div
+            ref={targetRef}
+            className="min-h-[300px]"
+        > 
+        <div className={`${isVisible?'':'canva-wrapper'} mt-12 relative`}>
             {/* Stars overlay background */}
             <StarsCanvas />
             {/* Main Swipe */}
@@ -81,7 +94,7 @@ const Asteroids = () => {
 
                                 </div>
 
-                                <div className=' absolute right-0  min-h-full w-[60%] wbp:min-w-[768px] min-w-full  cursor-pointer z-[-1] '>
+                                <div className=' absolute right-0  min-h-full w-[60%] wbp:min-w-[768px] min-w-full  cursor-pointer z-[-1]'>
                                     <Model/>
                                 </div>
                             </div>
@@ -93,6 +106,7 @@ const Asteroids = () => {
             </Swiper>
 
         </div>
+        </div> 
 
 
     </section>
