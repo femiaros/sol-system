@@ -59,9 +59,12 @@ const Worlds = () => {
 
         <div // intersection observing div
             ref={targetRef}
-            className="min-h-[300px]"
-        >     
-        <div className={`${isVisible?'':'canva-wrapper'} mt-12 relative`}>
+            className="min-h-[590px] h-[calc(100vh-80px)]"
+        > 
+
+        {isVisible && (   
+
+        <div className={`${isVisible?'':'hidden'} mt-12 relative`}>
             {/* Stars overlay background */}
             <StarsCanvas />
             {/* Main Swipe */}
@@ -110,6 +113,8 @@ const Worlds = () => {
             </Swiper>
 
         </div>
+        )}
+
         </div> 
     
     

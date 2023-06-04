@@ -105,13 +105,3 @@ export const slideIn = (direction, type, delay, duration) => {
   };
 };
 
-export const hideOut = () => {
-  return {
-    hidden: {
-      display:'none',
-    },
-    show: {
-      display:'block',
-    },
-  };
-};

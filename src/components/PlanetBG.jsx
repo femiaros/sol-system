@@ -11,13 +11,16 @@ const PlanetBG = ({headerRef}) => {
   }, headerRef)
 
   return (
-    <div className={`${isVisible?'':'canva-wrapper'} absolute z-[-1] top-0 left-0 w-full h-full`} 
-    >   
-        
-      <SolarSystemCanvas />
-      <StarsCanvas />
-        
-    </div>
+    // *** remove canva from DOM if element not visibles ***  
+    isVisible && ( 
+      <div className={`${isVisible? '':'hidden'} absolute z-[-1] top-0 left-0 w-full h-full`} 
+      >   
+          
+        <SolarSystemCanvas />
+        <StarsCanvas />
+          
+      </div>
+    )
   )
 }
 

@@ -57,9 +57,12 @@ const Asteroids = () => {
         {/* ASTEROIDS SLIDE */}
         <div // intersection observing div
             ref={targetRef}
-            className="min-h-[300px]"
+            className="min-h-[590px] h-[calc(100vh-80px)]"
         > 
-        <div className={`${isVisible?'':'canva-wrapper'} mt-12 relative`}>
+
+        {isVisible && ( 
+
+        <div className={`${isVisible?'':'hidden'} mt-12 relative`}>
             {/* Stars overlay background */}
             <StarsCanvas />
             {/* Main Swipe */}
@@ -106,6 +109,8 @@ const Asteroids = () => {
             </Swiper>
 
         </div>
+        )}
+
         </div> 
 
 
