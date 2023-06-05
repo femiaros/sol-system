@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className='relative z-0 bg-primary'>
-      <header ref={headerRef} id='header' className='relative w-full min-h-screen bg-transparent mb-[100px]'>
+      <header ref={headerRef} id='header' className='relative w-full min-h-screen bg-transparent mb-[100px] mxs:mb-[60px]'>
         <Navbar state={state} dispatch={dispatch}/>
         <Hero />
         <PlanetBG headerRef={headerRef}/> 

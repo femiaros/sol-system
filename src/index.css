@@ -146,6 +146,9 @@
 .swiper-pagination-bullet-active{
   background-color: #193F93;
 }
+.swiper-button-next,.swiper-button-prev{
+  color: #193F93;
+}
 
 
 /* canvas- styles */

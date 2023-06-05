@@ -23,10 +23,7 @@ export default {
         fbpi:'723px',
         'mhbp': {'max': '1230px'},
         'mxs': {'max': '450px'}
-      },
-      backgroundImage: {
-        "nav-pattern": "url('/src/images/space.jpg')",
-      },
+      }
     },
   },
   plugins: [],

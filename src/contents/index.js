@@ -194,6 +194,7 @@ const missions = [
     icon: nasa,
     iconBg: "#E6DEDD",
     src: newHorizonsMission,
+    hashString: 'LA8qB6~VR-0K-=-;WBM_4:E2xu?a',
     date: "Jan 2006 - Further",
     points: [
       "New Horizons is a NASA mission to study the dwarf planet Pluto, its moons, and other objects in the Kuiper Belt, a region of the solar system that extends from about 30 AU, near the orbit of Neptune, to about 50 AU from the Sun.",
@@ -207,6 +208,7 @@ const missions = [
     icon: nasa,
     iconBg: "#383E56",
     src: Phoenix,
+    hashString: 'LgCZV5M_ROt8_4RiRiog%NWBV@az',
     date: "Aug 2007 - Nov 2008",
     points: [
       "The Phoenix Mars lander was the first under NASA’s new Mars Scout Program to send a series of small, low-cost, low complexity and higher frequency robotic missions to Mars.",
@@ -220,6 +222,7 @@ const missions = [
     icon: nasa,
     iconBg: "#E6DEDD",
     src: junoMission,
+    hashString: 'LA8qEG4n4n~p%LR*NGt600?H-p9F',
     date: "August 2011 - September 2025",
     points: [
       "On August 5, 2011, NASA’s Juno spacecraft embarked on a 5-year journey to our solar system's largest planet – the gas giant Jupiter.",
@@ -234,6 +237,7 @@ const missions = [
     icon: nasa,
     iconBg: "#383E56",
     src: Davinci,
+    hashString: 'L4KA11}j;aT#NJ9vWY~89D0;5[]x',
     date: "Late 2020s - Further",
     points: [
       "Named after visionary Renaissance artist and scientist Leonardo da Vinci, the DAVINCI mission Deep Atmosphere Venus Investigation of Noble gases, Chemistry, and Imaging is scheduled to launch in the late 2020s.",

@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import "react-vertical-timeline-component/style.min.css"
 import { styles } from '../styles'
 import { missions } from "../contents"
+import ImageHolder from "./ImageHolder"
 import { staggerContainer,textVariant,fadeIn } from "../utils/motion"
 
 const MissionCard = ({ mission }) => {
@@ -39,15 +40,11 @@ const MissionCard = ({ mission }) => {
         </p>
       </div>
 
-      <div className='mt-5 w-full max-w-[] h-[230px]'>
-        <img
-          src={mission.src}
-          alt='project_image'
-          className='w-full h-full object-cover rounded-2xl'
-        />
+      <div className='mt-6 w-full max-w-[] h-[230px] rounded-2xl overflow-hidden'>
+        <ImageHolder src={mission.src} hashString={mission.hashString}/>
       </div>
 
-      <ul className='mt-5 list-disc ml-5 space-y-2'>
+      <ul className='mt-6 list-disc ml-5 space-y-2'>
         {mission.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}

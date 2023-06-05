@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useRef,useState } from "react"
 import { motion } from "framer-motion"
 import { Tilt } from 'react-tilt'
 import { styles } from '../styles'
@@ -9,22 +9,29 @@ import useElementOnScreen from "../hooks/useElementOnScreen"
 import { planetsSlideData } from '../contents'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper'
+import { Pagination,Navigation } from 'swiper'
 // Import Swiper styles
 import 'swiper/css'
-import 'swiper/css/pagination';
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 
 
 const Worlds = () => {
-    // *** required state && hook***
+    // *** required state && hook && func***
     const targetRef = useRef(null)
+    const [currentModelIndex,setCurrentModelIndex] = useState(0)
     
     const isVisible = useElementOnScreen({
         root: null,
         rootMargin: '0px',
         threshold: 0.3
     }, targetRef)
+
+    const handleSlideChange = (swiper)=>{
+        // set active CurrentModelIndex 
+        setCurrentModelIndex(swiper.activeIndex)
+    }
 
   return (
     <main id='worlds' className='relative z-[-1] min-h-screen mb-[80px] scroll-mt-20'>
@@ -67,15 +74,17 @@ const Worlds = () => {
         <div className={`${isVisible?'':'hidden'} mt-12 relative`}>
             {/* Stars overlay background */}
             <StarsCanvas />
-            {/* Main Swipe */}
+            {/* Swipe slide*/}
             <Swiper 
                 className='relative max-w-7xl mx-auto min-h-[590px] h-[calc(100vh-80px)]'
-                modules={[Pagination]}
+                modules={[Pagination,Navigation]}
                 spaceBetween={20}
                 pagination={{ clickable: true }}
+                navigation
+                onSlideChange={handleSlideChange}
             >
                 {   
-                    planetsSlideData.map(planet=>{
+                    planetsSlideData.map((planet,index)=>{
                         const Model = planet.model
                         return (
                         <SwiperSlide  key={planet.id}
@@ -101,7 +110,7 @@ const Worlds = () => {
 
                                 <div className={` absolute right-0  min-h-full w-[60%] wbp:min-w-[768px] min-w-full  cursor-pointer z-[-1]`}>
                                 
-                                    <Model/>
+                                    {(index === currentModelIndex)&&<Model/>}
                                 
                                 </div>
                             </div>

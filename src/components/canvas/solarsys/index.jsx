@@ -4,7 +4,7 @@ import { PerspectiveCamera,OrbitControls } from "@react-three/drei"
 
 import { Solar } from "./Solar"
 import { angleToRadians } from "../../../utils/angles"
-// import CanvasLoader from "../../Loader"
+import CanvasLoader from "../../Loader"
 
 const SolarSystem = () => {
   const solarSystemRef = useRef(null)
@@ -40,7 +40,7 @@ const SolarSystem = () => {
 const SolarSystemCanvas = () => {
   return (
     <Canvas shadows>
-        <Suspense fallback={null}>
+        <Suspense fallback={<CanvasLoader />}>
           <SolarSystem/>
         </Suspense>
     </Canvas>

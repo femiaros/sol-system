@@ -45,7 +45,7 @@ const Footer = ({state}) => {
       
         <motion.div
           variants={fadeIn("", "", 0.1, 1)}
-          className='mt-4 mb-5 text-secondary mxs:text-[13px] text-[14px] max-w-3xl leading-[30px]'
+          className='mt-4 mb-8 text-secondary mxs:text-[13px] text-[14px] max-w-3xl leading-[30px]'
         >
           <p className=""><span className=" w-3 h-3 bg-alternative inline-block mr-1"></span>Earth map rendered in 2[dimension]</p>
           <p className=""><span className=" w-3 h-3 bg-alternative inline-block mr-1"></span>image close to detailed true-color of the entire Earth</p>
@@ -56,7 +56,7 @@ const Footer = ({state}) => {
       </motion.div>
 
       {/* ISS tracking map */}
-      <div className={`px-5 mxs:px-2 max-w-7xl mx-auto mb-[80px]`}>
+      <div className={`px-5 mxs:px-2 max-w-7xl mx-auto mb-[100px]`}>
         <IssPosition/>
       </div>
 
@@ -180,7 +180,7 @@ const Footer = ({state}) => {
         
       </div>
        {/* Extra Spacing */}
-      <div className="h-[40px]"></div>
+      <div className="h-[80px]"></div>
     </footer>
   )
 }
